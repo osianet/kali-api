@@ -1,0 +1,15 @@
+services:
+  kali-api:
+    build: .
+    container_name: kali-api
+    environment:
+      - KALI_API_KEY=${KALI_API_KEY}
+    ports:
+      - "127.0.0.1:8100:8000"
+    restart: always
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
